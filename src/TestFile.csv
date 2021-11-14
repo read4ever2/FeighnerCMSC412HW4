@@ -1,0 +1,17 @@
+resources,5,,,,
+processes,7,,,,
+totalResources,11,12,13,11,15
+p1Allocated,2,2,3,0,0
+p2Allocated,1,2,3,1,2
+p3Allocated,2,3,0,2,3
+p4Allocated,1,2,2,1,1
+p5Allocated,2,2,2,2,2
+p6Allocated,0,1,1,1,1
+p7Allocated,1,0,0,3,3
+p1Max,4,2,5,1,1
+p2Max,1,6,6,2,2
+p3Max,6,3,1,3,6
+p4Max,5,6,3,3,2
+p5Max,2,6,6,4,2
+p6Max,6,5,1,4,6
+p7Max,4,2,2,3,6
