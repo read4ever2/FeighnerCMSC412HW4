@@ -1,5 +1,5 @@
 /*
- *  Filename: Main.java
+ *  Filename: BankerTemplate.java
  *  Author: Will Feighner
  *  Date: 2021 11 14
  * Purpose: Implements the banker's algorithm from a properly
