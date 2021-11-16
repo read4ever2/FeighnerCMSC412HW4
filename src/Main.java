@@ -32,9 +32,9 @@ public class Main {
     String filepath = System.getProperty("user.dir");
 
 
-    Scanner scanner = new Scanner(System.in);  // Create a Scanner object
+    Scanner scanner = new Scanner(System.in);
 
-    String filename = scanner.nextLine();  // Read user input
+    String filename = scanner.nextLine();
 
     filepath = filepath.concat("/src/").concat(filename);
 
