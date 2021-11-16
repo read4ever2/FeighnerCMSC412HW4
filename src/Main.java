@@ -11,10 +11,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
-  static String filepath = "/Users/willfeighner/IdeaProjects/FeighnerCMSC412HW4/src/TestFile.csv";
+  // static String filepath = "/Users/willfeighner/IdeaProjects/FeighnerCMSC412HW4/src/TestFile.csv";
 
   private static int resourceCount;
   private static int processCount;
@@ -27,6 +28,15 @@ public class Main {
 
   public static void main(String[] args) {
     System.out.print("Input file name: ");
+
+    String filepath = System.getProperty("user.dir");
+
+
+    Scanner scanner = new Scanner(System.in);  // Create a Scanner object
+
+    String filename = scanner.nextLine();  // Read user input
+
+    filepath = filepath.concat("/src/").concat(filename);
 
     CSVLoader loader = new CSVLoader(filepath);
 
