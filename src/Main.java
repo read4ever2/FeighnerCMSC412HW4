@@ -7,17 +7,18 @@
 */
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
 
   static String filepath = "/Users/willfeighner/IdeaProjects/FeighnerCMSC412HW4/src/TestFile.csv";
 
-  private static int[][] bankersArray;
   private static int resourceCount;
   private static int processCount;
   private static int[] totalResources;
-  private static int[] available;
   private static int[][] allocated;
   private static int[][] maxRequest;
   private static int[][] needResources;
@@ -25,13 +26,15 @@ public class Main {
 
 
   public static void main(String[] args) {
+    System.out.print("Input file name: ");
+
     CSVLoader loader = new CSVLoader(filepath);
 
-    bankersArray = loader.getValues();
+    int[][] bankersArray = loader.getValues();
     resourceCount = bankersArray[0].length;
     processCount = (bankersArray.length - 1) / 2;
     totalResources = bankersArray[0];
-    available = new int[resourceCount];
+    int[] available = new int[resourceCount];
     allocated = new int[processCount][resourceCount];
     maxRequest = new int[processCount][resourceCount];
     needResources = new int[processCount][resourceCount];
@@ -140,6 +143,40 @@ public class Main {
         System.out.print("\t" + suppliedArray[i][j]);
       }
       System.out.println();
+    }
+  }
+
+  public static class CSVLoader {
+
+    public final String filepath;
+
+    CSVLoader(String filepath) {
+      this.filepath = filepath;
+    }
+
+    public int[][] getValues() {
+      int[][] matrix = new int[0][1];
+      String line;
+      String[] tokens;
+      try {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath));
+
+        int resources = Integer.parseInt(bufferedReader.readLine().split(",")[1]);
+        int processes = Integer.parseInt(bufferedReader.readLine().split(",")[1]);
+
+        int j = 0;
+        matrix = new int[(processes * 2) + 1][resources];
+        while ((line = bufferedReader.readLine()) != null) {
+          tokens = line.split(",");
+          for (int i = 0; i < tokens.length - 1; i++) {
+            matrix[j][i] = Integer.parseInt(tokens[i + 1]);
+          }
+          j++;
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+      return matrix;
     }
   }
 }
