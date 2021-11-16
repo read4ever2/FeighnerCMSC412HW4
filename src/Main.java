@@ -63,20 +63,7 @@ public class Main {
 
     System.out.println("\nSafe sequences are:");
     safeSequence(visited, allocated, needResources, available, safe);
-    System.out.println("\nThere are total " + total + " safe-sequences");
-
-    /*
-    for (int i = 0; i < resourceCount; i++) {
-      int total = 0;
-      for (int j = 0; j < processCount; j++) {
-        total += allocated[j][i];
-      }
-      available[i] = totalResources[i] - total;
-      System.out.print(available[i] + ", ");
-    }
-    System.out.println();
-    */
-
+    System.out.println("\nThere are total " + total + " safe sequences.");
   }
 
   static boolean checkAvailable(int process, int[][] need, int[] available) {
